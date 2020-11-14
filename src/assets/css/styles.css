@@ -301,6 +301,11 @@ textarea:focus {
   color: rgb(179, 179, 179);
 }
 
+.boldClass {
+  font-weight: bold !important;
+  color: #34495e !important;
+}
+
 .article-item a {
   display: block;
   color: #444;

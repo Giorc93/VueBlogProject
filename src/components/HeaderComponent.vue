@@ -22,7 +22,9 @@
             <router-link to="/test" active-class="active">Page 1</router-link>
           </li>
           <li>
-            <router-link :to="{ name: 'Test', params: { id: 'Params' } }"
+            <router-link
+              active-class="active"
+              :to="{ name: 'SecTest', params: { id: 'Params' } }"
               >Page 2</router-link
             >
           </li>

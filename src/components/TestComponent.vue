@@ -5,6 +5,18 @@
     <h3>{{ dataUrl }}</h3>
     <button @click="upFn()">{{ click }}</button>
     <button @click="redirTo()">Go To Blog</button>
+    <h2 class="sub-header">Reactivity</h2>
+    <input type="text" v-model="name" />
+    <p>{{ name }}</p>
+    <h2 class="sub-header">If Condition</h2>
+    <input type="number" v-model="age" />
+    <p v-if="age && age >= 21">Age over 21</p>
+    <p v-else-if="age && age == 20">Age: 20</p>
+    <p v-else>Age under 21</p>
+    <h2>For Loop</h2>
+    <ul>
+      <li v-for="(elm, index) in testArr" :key="index">{{ elm }}</li>
+    </ul>
   </section>
 </template>
 
@@ -16,6 +28,9 @@ export default {
       subtitle: "Test component subtitle",
       dataUrl: null,
       click: 1,
+      name: "",
+      age: 12,
+      testArr: [1, 2, 3, 4, 5],
     };
   },
   // Method object must be used in order to create and call fns
