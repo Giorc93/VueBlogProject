@@ -1,28 +1,38 @@
 <template>
-  <section id="content">
-    <h1>Test Component</h1>
-    <h2>{{ subtitle }}</h2>
-    <h3>{{ dataUrl }}</h3>
-    <button @click="upFn()">{{ click }}</button>
-    <button @click="redirTo()">Go To Blog</button>
-    <h2 class="sub-header">Reactivity</h2>
-    <input type="text" v-model="name" />
-    <p>{{ name }}</p>
-    <h2 class="sub-header">If Condition</h2>
-    <input type="number" v-model="age" />
-    <p v-if="age && age >= 21">Age over 21</p>
-    <p v-else-if="age && age == 20">Age: 20</p>
-    <p v-else>Age under 21</p>
-    <h2>For Loop</h2>
-    <ul>
-      <li v-for="(elm, index) in testArr" :key="index">{{ elm }}</li>
-    </ul>
-  </section>
+  <div class="general">
+    <slider-component text="Test" small="true" />
+    <div class="center">
+      <section id="content">
+        <h1>Test Component</h1>
+        <h2>{{ subtitle }}</h2>
+        <h3>{{ dataUrl }}</h3>
+        <button @click="upFn()">{{ click }}</button>
+        <button @click="redirTo()">Go To Blog</button>
+        <h2 class="sub-header">Reactivity</h2>
+        <input type="text" v-model="name" />
+        <p>{{ name }}</p>
+        <h2 class="sub-header">If Condition</h2>
+        <input type="number" v-model="age" />
+        <p v-if="age && age >= 21">Age over 21</p>
+        <p v-else-if="age && age == 20">Age: 20</p>
+        <p v-else>Age under 21</p>
+        <h2>For Loop</h2>
+        <ul>
+          <li v-for="(elm, index) in testArr" :key="index">{{ elm }}</li>
+        </ul>
+      </section>
+      <sidebar-component />
+      <div class="clearfix"></div>
+    </div>
+  </div>
 </template>
 
 <script>
+import SidebarComponent from "./SidebarComponent.vue";
+import SliderComponent from "./SliderComponent.vue";
 export default {
   name: "TestComponent",
+  components: { SliderComponent, SidebarComponent },
   data() {
     return {
       subtitle: "Test component subtitle",

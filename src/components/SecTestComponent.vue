@@ -1,32 +1,36 @@
 <template>
-  <section id="content">
-    <h1>Second Test Component</h1>
-    <!--Listing array -->
-    <div id="articles">
-      <article
-        class="article-item"
-        id="article-template"
-        v-for="(car, index) in cars"
-        :key="index"
-      >
-        <div class="image-wrap">
-          <img :src="car.image" alt="test-img" />
+  <div class="general">
+    <slider-component text="SecTest" small="true" />
+    <div class="center">
+      <section id="content">
+        <h1>Second Test Component</h1>
+        <!--Listing array -->
+        <div id="articles">
+          <div v-for="(carInf, index) in cars" :key="index">
+            <!-- Sending Props -->
+            <car-component :car="carInf"></car-component>
+          </div>
         </div>
-        <h2>{{ car.model }}</h2>
-        <!-- Conditional Binding -->
-        <span class="date" :class="{ boldClass: car.year > 2018 }">{{
-          car.year
-        }}</span>
-        <a href="#">See more</a>
-        <div class="clearfix"></div>
-      </article>
+      </section>
+      <sidebar-component />
     </div>
-  </section>
+    <div class="clearfix"></div>
+  </div>
 </template>
 
 <script>
+import CarComponent from "./CarComponent.vue";
+import SliderComponent from "./SliderComponent.vue";
+import SidebarComponent from "./SidebarComponent";
+
 export default {
   name: "SecTestComponent",
+  // Loading child component to send props
+  components: {
+    CarComponent,
+    SidebarComponent,
+    SliderComponent,
+  },
   data() {
     return {
       cars: [
